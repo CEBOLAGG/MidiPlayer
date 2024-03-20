@@ -2,7 +2,7 @@ local Rostruct = (function() local a={_G={}}setmetatable(a,{__index=function(sel
 
 Rostruct
     -- Download the latest release to local files
-    .fetchLatest("richie0866", "MidiPlayer")
+    .fetchLatest("CEBOLAGG", "MidiPlayer")
     -- Then, build and start all scripts
     :andThen(function(package)
         package:build("src/")
