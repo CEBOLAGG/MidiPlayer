@@ -40,16 +40,17 @@ local function FastDraggable(gui, handle)
             update(input)
         end
     end)
-end
 
--- Add open function
-function openGui(gui)
-    gui.Visible = true
-end
-
--- Add close function
-function closeGui(gui)
-    gui.Visible = false
+    -- Open and close function
+    UserInputService.InputBegan:Connect(function(input)
+        if input.KeyCode == Enum.KeyCode.K then
+            if gui.Visible then
+                gui.Visible = false
+            else
+                gui.Visible = true
+            end
+        end
+    end)
 end
 
 return FastDraggable
