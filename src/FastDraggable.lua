@@ -1,3 +1,5 @@
+-- https://devforum.roblox.com/t/draggable-property-is-hidden-on-gui-objects/107689/5
+
 local UserInputService = game:GetService("UserInputService")
 
 local function FastDraggable(gui, handle)
@@ -18,14 +20,12 @@ local function FastDraggable(gui, handle)
             dragging = true
             dragStart = input.Position
             startPos = gui.Position
-            
+
             input.Changed:Connect(function()
                 if input.UserInputState == Enum.UserInputState.End then
                     dragging = false
                 end
             end)
-        elseif input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.K then
-            gui.Visible = not gui.Visible -- Alterna a visibilidade da GUI ao pressionar a tecla K
         end
     end)
 
@@ -40,6 +40,16 @@ local function FastDraggable(gui, handle)
             update(input)
         end
     end)
+end
+
+-- Add open function
+function openGui(gui)
+    gui.Visible = true
+end
+
+-- Add close function
+function closeGui(gui)
+    gui.Visible = false
 end
 
 return FastDraggable
