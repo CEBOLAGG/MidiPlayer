@@ -43,7 +43,7 @@ local function FastDraggable(gui, handle)
 
     -- Open and close function
     UserInputService.InputBegan:Connect(function(input)
-        if input.KeyCode == Enum.KeyCode.K then
+        if input.KeyCode == Enum.KeyCode.RightAlt then
             if gui.Visible then
                 gui.Visible = false
             else
