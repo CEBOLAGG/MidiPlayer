@@ -15,6 +15,7 @@ local Controller = require(midiPlayer.Components.Controller)
 local Sidebar = require(midiPlayer.Components.Sidebar)
 local Preview = require(midiPlayer.Components.Preview)
 
+
 local gui = midiPlayer.Assets.ScreenGui
 
 
@@ -24,15 +25,25 @@ end
 
 
 function App:Init()
+    -- Verifica se o Handle e ResizeHandle existem
+    if not gui.Frame:FindFirstChild("Handle") then
+        error("Handle not found in Frame!")
+    end
 
-    FastDraggable(gui.Frame, gui.Frame.Handle, gui.Frame.ResizeHandle)
+    if not gui:FindFirstChild("ResizeHandle") then
+        error("ResizeHandle not found in ScreenGui!")
+    end
+
+    -- Inicializa o Draggable com os componentes
+    FastDraggable(gui.Frame, gui.Frame.Handle, gui.ResizeHandle)
     gui.Parent = CoreGui
 
+    -- Inicializa os outros componentes
     Controller:Init(gui.Frame)
     Sidebar:Init(gui.Frame)
     Preview:Init(gui.Frame)
-
 end
+
 
 
 return App
