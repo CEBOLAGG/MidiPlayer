@@ -1,6 +1,6 @@
 -- App
 -- 0866
--- November 03, 2020
+-- December 24, 2024
 
 
 
@@ -25,7 +25,7 @@ end
 
 function App:Init()
 
-    FastDraggable(gui.Frame, gui.Frame.Handle)
+    FastDraggable(gui.Frame, gui.Frame.Handle, gui.Frame.ResizeHandle)
     gui.Parent = CoreGui
 
     Controller:Init(gui.Frame)
